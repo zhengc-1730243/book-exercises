@@ -62,4 +62,4 @@ mean(paycut)
 ## how you generated the salaries?
 
 # Write a .csv file of your salary data to your working directory
-write.csv(games, "my_new_file.csv", row.names = FALSE)
+write.csv(salaries, "salary_data.csv", row.names = FALSE)
