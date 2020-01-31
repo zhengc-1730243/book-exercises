@@ -4,7 +4,7 @@
 # You'll also need to load `dplyr`
 install.packages("nycflights13")
 library("nycflights13")
-
+library("dplyr")
 # The data frame `flights` should now be accessible to you.
 # Use functions to inspect it: how many rows and columns does it have?
 # What are the names of the columns?
@@ -24,15 +24,12 @@ flights <- arrange(flights, -delayed_in_air)
 View(flights)
 # For practice, repeat the last 2 steps in a single statement using the pipe
 # operator. You can clear your environmental variables to "reset" the data frame
-flights %>% 
-  muate(delayed_in_air = arr_delay - dep_delay) %>%  
-  arrange(-delayed_in_air) %>% 
-View(flights)
+flights_1 <- flights %>% 
+  mutate(delayed_in_air = arr_delay - dep_delay) %>%  
+  arrange(-delayed_in_air) 
+  View(flights_1)
 # Make a histogram of the amount of time gained using the `hist()` function
-flights <- mutate(flights, time_gained = arr_time - dep_time > 0)
-time_gain_flight <- filter(flights, time_gained == TRUE)
-View(time_gain_flight)
-hist(time_gain_flight, freq = FALSE, prob = TRUE)
+hist(flights$delayed_in_air) 
 
 # On average, did flights gain or lose time?
 # Note: use the `na.rm = TRUE` argument to remove NA values from your aggregation
