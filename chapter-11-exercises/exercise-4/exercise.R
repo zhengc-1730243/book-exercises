@@ -28,6 +28,7 @@ flights_1 <- flights %>%
   mutate(delayed_in_air = arr_delay - dep_delay) %>%  
   arrange(-delayed_in_air) 
   View(flights_1)
+  
 # Make a histogram of the amount of time gained using the `hist()` function
 hist(flights$delayed_in_air) 
 
